@@ -1,6 +1,31 @@
-import './Login.css'
+import { observer } from "mobx-react-lite";
+import "./Login.css";
+import useStore from "../../Hooks/useStore";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-const Login = () => {
+const Login = observer(() => {
+  const {
+    rootStore: { loginStore },
+  } = useStore();
+
+  const [name, setName] = useState("");
+  const [password, setPassword] = useState("");
+
+  const navigate = useNavigate();
+
+  const handleLogin = async () => {
+    await loginStore.fetchUserToken(name, password);
+    navigate("/products");
+  };
+  const handleUserName = (e) => {
+    setName(e.target.value);
+  };
+
+  const handlePassword = (e) => {
+    setPassword(e.target.value);
+  };
+
   return (
     <main className="form-signin">
       <form>
@@ -11,9 +36,11 @@ const Login = () => {
             type="email"
             className="form-control"
             id="floatingInput"
-            placeholder="name@example.com"
+            placeholder="Username"
+            value={name}
+            onChange={handleUserName}
           />
-          <label for="floatingInput">Email address</label>
+          <label for="floatingInput">UserName</label>
         </div>
         <div className="form-floating">
           <input
@@ -21,17 +48,22 @@ const Login = () => {
             className="form-control"
             id="floatingPassword"
             placeholder="Password"
+            value={password}
+            onChange={handlePassword}
           />
           <label for="floatingPassword">Password</label>
         </div>
 
-        <button className="btn btn-primary w-100 py-2" type="submit">
+        <button
+          onClick={handleLogin}
+          className="btn btn-primary w-100 py-2"
+          type="button"
+        >
           Sign in
         </button>
-        <p className="mt-5 mb-3 text-body-secondary">&copy; 2017–2023</p>
       </form>
     </main>
   );
-};
+});
 
 export default Login;
