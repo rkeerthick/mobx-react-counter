@@ -15,7 +15,7 @@ const Login = observer(() => {
   const navigate = useNavigate();
 
   const handleLogin = async () => {
-    await loginStore.fetchUserToken(name, password);
+    await loginStore
     navigate("/products");
   };
   const handleUserName = (e) => {

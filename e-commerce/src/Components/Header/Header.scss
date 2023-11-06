@@ -4,11 +4,12 @@
 
   &__container {
     height: 70px;
-    width: auto;
+    width: 100%;
     background-color: rgb(77, 75, 75);
     display: flex;
     justify-content: center;
     align-items: center;
+    position: fixed;
   }
 
   ol {

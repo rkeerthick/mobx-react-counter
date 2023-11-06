@@ -1,8 +1,8 @@
 import axios from "axios";
 import { action, computed, makeObservable, observable } from "mobx";
-import { IRootStore } from "./rootStore";
+import { IRootStore } from "./RootStore";
 
-class loginStore {
+class LoginStore {
   loginToken: string = "";
   rootStore: IRootStore
   constructor(rootStore: IRootStore) {
@@ -36,4 +36,4 @@ class loginStore {
     return this.loginToken;
   }
 }
-export default loginStore;
+export default LoginStore;
