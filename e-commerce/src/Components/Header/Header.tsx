@@ -1,25 +1,13 @@
+import { Link } from "react-router-dom";
 import "./Header.scss";
 
 const Header = () => {
   return (
     <header className="header">
       <div className="header__container">
-        <ol>
-          <li>
-            <a href="#">Home</a>
-          </li>
-          <li>
-            <a href="#">Home</a>
-          </li>
-          <li>
-            <a href="#">Home</a>
-          </li>
-          <li>
-            <a href="#">Home</a>
-          </li>
-        </ol>
+        <span>E-commerce</span>
         <div className="header__buttons">
-          <button type="button">Submit</button>
+          <Link to="/login" className="btn">Submit</Link>
           <button type="button">Reset</button>
         </div>
       </div>
