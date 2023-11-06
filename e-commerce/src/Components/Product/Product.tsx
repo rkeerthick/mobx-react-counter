@@ -13,7 +13,7 @@ const Product = (props: any) => {
             praesentium dolor quo repudiandae?
           </p>
           <div className="product__footer">
-            <div className="buttons"> 
+            <div className="product__buttons"> 
               <button>View</button>
               <button>Edit</button>
             </div>
