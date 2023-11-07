@@ -1,20 +1,21 @@
-import { map, sum } from "lodash";
-import useStore from "../../Hooks/useStore";
-import "./Checkout.scss";
-import { IProducts } from "../../store/ProductStore";
-import { observer } from "mobx-react-lite";
 
-const Checkout = observer(() => {
+import { observer } from 'mobx-react-lite';
+import useStore from '../../Hooks/useStore';
+import { map, sum } from 'lodash';
+import { IProducts } from '../../store/ProductStore';
+import "./CheckoutPage.scss";
+
+const CheckoutPage = observer(() => {
   const {
     rootStore: { cartStore },
   } = useStore();
 
   const totalPrice = sum(map(cartStore.getCart, (product) => product.price));
 
-    const handleRemove = (product: IProducts) => {
-        cartStore.removeProductInCart(product)
-    }
-    
+  const handleRemove = (product: IProducts) => {
+    cartStore.removeProductInCart(product);
+  };
+
   return (
     <div className="checkout">
       <div className="col-md-5 col-lg-4 order-md-last">
@@ -27,7 +28,10 @@ const Checkout = observer(() => {
         <ul className="list-group mb-3">
           {map(cartStore.getCart, (product) => (
             <li className="list-group-item d-flex justify-content-between lh-sm">
-              <div style={{cursor: 'pointer'}} onClick={() => handleRemove(product)}>
+              <div
+                style={{ cursor: "pointer" }}
+                onClick={() => handleRemove(product)}
+              >
                 <h6 className="my-0">{product.title}</h6>
               </div>
               <span className="text-body-secondary">${product.price}</span>
@@ -43,4 +47,4 @@ const Checkout = observer(() => {
   );
 });
 
-export default Checkout;
+export default CheckoutPage

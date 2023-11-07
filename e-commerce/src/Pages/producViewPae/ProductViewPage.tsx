@@ -1,12 +1,12 @@
-import { useParams } from "react-router-dom";
-import useStore from "../../Hooks/useStore";
-import { find } from "lodash";
-import { observer } from "mobx-react-lite";
-import "./ProductView.scss";
-import { IProducts } from "../../store/ProductStore";
+import { observer } from 'mobx-react-lite';
+import useStore from '../../Hooks/useStore';
+import { useParams } from 'react-router-dom';
+import { find } from 'lodash';
+import { IProducts } from '../../store/ProductStore';
+import './ProductViewPage.scss'
 
-const ProductView = observer(() => {
-  const {
+const ProductViewPage = observer(() => {
+      const {
     rootStore: { productStore, cartStore },
   } = useStore();
   const { productID } = useParams();
@@ -37,6 +37,6 @@ const ProductView = observer(() => {
       </div>
     </div>
   );
-});
+})
 
-export default ProductView;
+export default ProductViewPage;

@@ -1,11 +1,21 @@
 
 import Product from '../Components/Product/Product';
+import { IProducts } from '../store/ProductStore';
 
-const ProductsContainer = () => {
+interface IProductContainer {
+    products: IProducts[]
+}
+
+const ProductsContainer = ({products}: IProductContainer) => {
     
     return (
-        <>
-        </>
+      <>
+        <div className="products">
+          {products.map((product) => (
+            <Product product={product} key={product.id} />
+          ))}
+        </div>
+      </>
     );
 }
 

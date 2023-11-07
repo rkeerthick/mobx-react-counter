@@ -1,9 +1,9 @@
 import React from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 import Login from "../Login/Login";
-import ProductView from "../ProductView/ProductView";
-import CheckoutPage from "../../Pages/CheckoutPage";
-import ProductsPage from "../../Pages/ProductsPage";
+import CheckoutPage from "../../Pages/checkoutPage/CheckoutPage";
+import ProductsPage from "../../Pages/productPage/ProductsPage";
+import ProductViewPage from "../../Pages/producViewPae/ProductViewPage";
 
 const Routing = () => {
   return (
@@ -11,7 +11,7 @@ const Routing = () => {
       <Route path="/" element={<Navigate replace to="/products" />} />
       <Route path="/products" element={<ProductsPage />} />
       <Route path="/login" element={<Login />} />
-      <Route path="/products/:productID" element={<ProductView />} />
+      <Route path="/products/:productID" element={<ProductViewPage />} />
       <Route path="/checkout" element={<CheckoutPage />} />
     </Routes>
   );
