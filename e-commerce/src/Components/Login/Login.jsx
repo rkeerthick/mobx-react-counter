@@ -6,16 +6,18 @@ import { useNavigate } from "react-router-dom";
 
 const Login = observer(() => {
   const {
-    rootStore: { loginStore },
+    rootStore: {loginStore}
   } = useStore();
 
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
 
+  
+
   const navigate = useNavigate();
 
   const handleLogin = async () => {
-    await loginStore
+    await loginStore.fetchUserToken(name, password)
     navigate("/products");
   };
   const handleUserName = (e) => {
@@ -40,7 +42,7 @@ const Login = observer(() => {
             value={name}
             onChange={handleUserName}
           />
-          <label for="floatingInput">UserName</label>
+          <label htmlFor="floatingInput">UserName</label>
         </div>
         <div className="form-floating">
           <input
@@ -51,7 +53,7 @@ const Login = observer(() => {
             value={password}
             onChange={handlePassword}
           />
-          <label for="floatingPassword">Password</label>
+          <label htmlFor="floatingPassword">Password</label>
         </div>
 
         <button

@@ -33,6 +33,7 @@
     display: flex;
     justify-content: flex-end;
     margin-right: 30px;
+    gap: 40px;
   }
 
   .btn {
@@ -47,9 +48,15 @@
     border: 1px solid black;
   }
 
-  span {
+  .brand-name {
     color: white;
     font-size: 28px;
     font-weight: 700;
+  }
+
+  .user-name {
+    font-size: 18px;
+    font-weight: 400;
+    color: orange;
   }
 }

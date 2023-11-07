@@ -2,6 +2,6 @@ import { createContext } from "react";
 import { RootStore } from "./RootStore";
 
  const rootStoreContext = createContext({
-    rootStore: RootStore
+    rootStore: new RootStore()
  })
 export default rootStoreContext;

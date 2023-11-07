@@ -5,6 +5,6 @@ if (process.env.NODE_ENV === "development") {
   const { enableLogging } = require("mobx-logger");
   enableLogging();
 }
-const useStore = () => useContext(rootStoreContext);
 
+const useStore = () => useContext(rootStoreContext);
 export default useStore;

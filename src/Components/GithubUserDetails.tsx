@@ -5,8 +5,11 @@ import { useState } from "react";
 
 const GithubUserDetails = observer(() => {
   const {
-    rootStore: { userDetailsStore },
+    rootStore: {userDetailsStore}
   } = useStore();
+
+  const demo = useStore();
+  console.log(demo, 'demo')
 
   const [text, setText] = useState("");
 
