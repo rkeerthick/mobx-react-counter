@@ -1,7 +1,5 @@
+
 .products {
-  width: 100%;
-  margin: auto;
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: minmax(0,1fr) minmax(0,1fr) minmax(0,1fr);
 }

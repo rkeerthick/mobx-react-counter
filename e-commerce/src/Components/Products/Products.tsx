@@ -11,7 +11,7 @@ const Products = observer(() => {
 
   useEffect(() => {
     productStore.fetchProducts();
-  }, []);
+  }, [productStore]);
   return (
     <div className="products">
       {productStore.getProducts.map((product) => (

@@ -22,7 +22,7 @@ const Product = observer(({product}: IProps) => {
           </p>
           <div className="product__footer">
             <div className="product__buttons">
-              <Link to={`/products/${product.id}`} className="btn">
+              <Link to={`/products/${product.id}`} className="link">
                 View
               </Link>
             </div>
