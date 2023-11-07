@@ -31,8 +31,8 @@ export class ProductStore {
 
   async fetchProducts() {
     try {
-      const response = await axios.get("https://fakestoreapi.com/products");
-      this.products = response?.data ?? [];
+        const response = await axios.get("https://fakestoreapi.com/products");
+        this.products = response?.data ?? [];
     } catch (e) {
       console.log(e);
     }

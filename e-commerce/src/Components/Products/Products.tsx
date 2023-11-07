@@ -1,15 +1,24 @@
 import "./Products.scss";
 import Product from "../Product/Product";
+import useStore from "../../Hooks/useStore";
+import { useEffect } from "react";
+import { observer } from "mobx-react-lite";
 
-const Products = () => {
+const Products = observer(() => {
+  const {
+    rootStore: { productStore },
+  } = useStore();
+
+  useEffect(() => {
+    productStore.fetchProducts();
+  }, []);
   return (
     <div className="products">
-      <Product />
-      <Product />
-      <Product />
-      <Product />
+      {productStore.getProducts.map((product) => (
+        <Product product={product} key={product.id} />
+      ))}
     </div>
   );
-};
+});
 
 export default Products;
