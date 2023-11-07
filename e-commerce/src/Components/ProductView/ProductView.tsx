@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import useStore from "../../Hooks/useStore";
 import { find } from "lodash";
 import { observer } from "mobx-react-lite";
+import "./ProductView.scss";
 
 const ProductView = observer(() => {
   const {
@@ -14,9 +15,26 @@ const ProductView = observer(() => {
     (prod) => prod.id.toString() === productID
   );
 
-  console.log(product, "product");
+    const handleBuyNow = () => {
+        
+    }
 
-  return <div>ProductView</div>;
+  return (
+    <div className="product-view">
+      <div className="product-view__container">
+        <div className="product-view__container__left">
+          <img src={product?.image} alt="" />
+        </div>
+        <div className="product-view__container__right">
+          <span className="title">{product?.title}</span>
+          <span className="description">{product?.description}</span>
+          <button type="button" onClick={handleBuyNow}>
+            Buy Now
+          </button>
+        </div>
+      </div>
+    </div>
+  );
 });
 
 export default ProductView;

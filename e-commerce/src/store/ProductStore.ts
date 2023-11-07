@@ -1,6 +1,7 @@
 import axios from "axios";
 import { action, computed, makeObservable, observable } from "mobx";
 import { IRootStore } from "./RootStore";
+import { persist } from "mobx-persist";
 
 export interface IProuducts {
   id: number;

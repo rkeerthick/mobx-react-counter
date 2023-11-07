@@ -1,0 +1,40 @@
+.product-view {
+    width: 100%;
+    
+    &__container {
+        padding-top: 100px;
+        display: flex;
+        justify-content: center;
+        gap: 50px;
+
+        &__left {
+            flex-grow: 1;
+        }
+
+        &__right {
+            flex-grow: 8;
+            margin-top: 100px;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            row-gap: 40px;
+
+            .title {
+                display: block;
+                font-size: 28px;
+                font-weight: 600;
+            }
+
+            .description {
+                display: block;
+                font-size: 18px;
+                font-weight: 400;
+            }
+        }
+    }
+    
+    img {
+        width: 400px;
+        height: auto;
+    }
+}

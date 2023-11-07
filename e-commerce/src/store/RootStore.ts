@@ -15,3 +15,4 @@ export class RootStore implements IRootStore {
       this.productStore = new ProductStore(this)
   }
 }
+
