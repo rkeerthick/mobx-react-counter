@@ -1,8 +1,8 @@
 import "./Products.scss";
-import Product from "../Product/Product";
 import useStore from "../../Hooks/useStore";
 import { useEffect } from "react";
 import { observer } from "mobx-react-lite";
+import Product from "../Product/Product";
 
 const Products = observer(() => {
   const {

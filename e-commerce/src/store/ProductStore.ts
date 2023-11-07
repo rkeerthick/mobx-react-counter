@@ -2,7 +2,7 @@ import axios from "axios";
 import { action, computed, makeObservable, observable } from "mobx";
 import { IRootStore } from "./RootStore";
 
-export interface IProuducts {
+export interface IProducts {
   id: number;
   title: string;
   price: number;
@@ -17,7 +17,7 @@ export interface Rating {
   count: number;
 }
 export class ProductStore {
-  products: IProuducts[] = [];
+  products: IProducts[] = [];
   rootStore: IRootStore;
 
   constructor(rootStore: IRootStore) {

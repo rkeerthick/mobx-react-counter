@@ -5,14 +5,14 @@ import useStore from "../../Hooks/useStore";
 
 const Header = observer(() => {
   const {
-    rootStore: { loginStore },
+    rootStore: { loginStore, cartStore },
   } = useStore();
 
   const navigate = useNavigate();
 
   const handleLogout = () => {
     loginStore.logout();
-    navigate('/login')
+    navigate("/login");
   };
 
   return (
@@ -27,15 +27,23 @@ const Header = observer(() => {
               Login
             </Link>
             <button type="button">Sign Up</button>
+            <Link to="/checkout" className="btn">
+              {`Cart ${cartStore.getTotalProduct}`}
+            </Link>
           </div>
         )}
         {loginStore.getUserDetails?.username && (
           <>
             <div className="header__buttons">
-            <span className="user-name">Welcome {loginStore.getUserDetails.username}</span>
+              <span className="user-name">
+                Welcome {loginStore.getUserDetails.username}
+              </span>
               <button onClick={handleLogout} type="button">
                 Logout
               </button>
+              <Link to="/checkout" className="btn">
+                Cart
+              </Link>
             </div>
           </>
         )}

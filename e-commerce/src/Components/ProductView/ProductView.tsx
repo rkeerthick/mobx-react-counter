@@ -3,21 +3,23 @@ import useStore from "../../Hooks/useStore";
 import { find } from "lodash";
 import { observer } from "mobx-react-lite";
 import "./ProductView.scss";
+import { IProducts } from "../../store/ProductStore";
 
 const ProductView = observer(() => {
   const {
-    rootStore: { productStore },
+    rootStore: { productStore, cartStore },
   } = useStore();
   const { productID } = useParams();
 
   const product = find(
     productStore.getProducts,
     (prod) => prod.id.toString() === productID
-  );
+  ) as IProducts;
 
-    const handleBuyNow = () => {
-        
-    }
+  const handleBuyNow = () => {
+    cartStore.addProductInCart(product);
+  };
+    
 
   return (
     <div className="product-view">

@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
-import { IProuducts } from "../../store/ProductStore";
+import { IProducts } from "../../store/ProductStore";
 import "./Product.scss";
 import { observer } from "mobx-react-lite";
 
 export interface IProps {
-  product: IProuducts;
+  product: IProducts;
 }
 
 const Product = observer(({product}: IProps) => {

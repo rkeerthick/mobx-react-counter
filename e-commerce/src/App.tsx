@@ -7,7 +7,7 @@ import { observer } from "mobx-react-lite";
 const App = observer(() => {
   return (
     <BrowserRouter>
-      <Header />
+        <Header />
       <div className="App">
         <Routing />
       </div>
