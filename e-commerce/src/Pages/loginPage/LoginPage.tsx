@@ -1,30 +1,38 @@
-import { observer } from "mobx-react-lite";
-import "./Login.css";
-import useStore from "../../Hooks/useStore";
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { observer } from 'mobx-react-lite';
+import React, { useState } from 'react'
+import useStore from '../../Hooks/useStore';
+import { useNavigate } from 'react-router-dom';
+import './LoginPage.scss'
+import { fetchToken } from '../../utils/functions';
 
-const Login = observer(() => {
+const LoginPage = observer(() => {
   const {
-    rootStore: {loginStore}
+    rootStore: { loginStore },
   } = useStore();
 
-  const [name, setName] = useState("");
-  const [password, setPassword] = useState("");
+  const [name, setName] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
 
-  
-
+  let token: string | void = '';
   const navigate = useNavigate();
 
   const handleLogin = async () => {
-    await loginStore.fetchUserToken(name, password)
+    const data = {
+      username: name,
+      password: password,
+    };
+      await loginStore.fetchUserToken(name, password);
+    // token = await fetchToken(data).then((res) => console.log(res, 'res')).catch(e => console.log(e, 'error'))
+    
+    
     navigate("/products");
   };
-  const handleUserName = (e) => {
+  console.log(token, 'response token')
+  const handleUserName = (e: any) => {
     setName(e.target.value);
   };
 
-  const handlePassword = (e) => {
+  const handlePassword = (e: any) => {
     setPassword(e.target.value);
   };
 
@@ -68,4 +76,4 @@ const Login = observer(() => {
   );
 });
 
-export default Login;
+export default LoginPage

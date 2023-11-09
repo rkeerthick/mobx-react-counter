@@ -2,6 +2,8 @@ import axios from "axios";
 import { action, computed, makeObservable, observable } from "mobx";
 import { IRootStore } from "./RootStore";
 import { find } from "lodash";
+import { APIS } from "../Constants/apis";
+import {fetchToken} from '../utils/functions'
 
 export interface IUserDetails {
   address: Address;
@@ -55,12 +57,9 @@ export class LoginStore {
       username: userName,
       password: password,
     };
-
-    const tokenRes = await axios.post(
-      `https://fakestoreapi.com/auth/login`,
-      data
-    );
-    const userLists = await axios.get("https://fakestoreapi.com/users");
+    debugger;
+    const tokenRes = await fetchToken(data)
+    const userLists = await axios.get(APIS.GET_USERS);
     if (tokenRes.data.token) {
       const user = find(userLists.data, (u) => u.username === userName);
       this.loginToken = tokenRes.data.token;

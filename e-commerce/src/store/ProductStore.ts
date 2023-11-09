@@ -1,6 +1,7 @@
-import axios from "axios";
+
 import { action, computed, makeObservable, observable } from "mobx";
 import { IRootStore } from "./RootStore";
+import { fetchAllProducts } from "../utils/functions";
 
 export interface IProducts {
   id: number;
@@ -23,22 +24,27 @@ export class ProductStore {
   constructor(rootStore: IRootStore) {
     makeObservable(this, {
       products: observable,
-      fetchProducts: action,
+      // fetchProducts: action,
       getProducts: computed,
     });
     this.rootStore = rootStore;
   }
 
-  async fetchProducts() {
-    try {
-        const response = await axios.get("https://fakestoreapi.com/products");
-        this.products = response?.data ?? [];
-    } catch (e) {
-      console.log(e);
-    }
-  }
+  // async fetchProducts() {
+  //   try {
+  //     // const response = await fetchAllProducts();
+  //     // this.products = response?.data ?? [];
+  //   } catch (e) {
+  //     console.log(e);
+  //   }
+  // }
 
   get getProducts() {
     return this.products;
   }
+
+  set setProducts(data: []) {
+    this.products = data;
+  }
 }
+

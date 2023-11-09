@@ -11,7 +11,7 @@ const ProductsContainer = ({products}: IProductContainer) => {
     return (
       <>
         <div className="products">
-          {products.map((product) => (
+          {products?.map((product) => (
             <Product product={product} key={product.id} />
           ))}
         </div>
