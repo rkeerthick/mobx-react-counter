@@ -24,20 +24,20 @@ export class ProductStore {
   constructor(rootStore: IRootStore) {
     makeObservable(this, {
       products: observable,
-      // fetchProducts: action,
+      fetchProducts: action,
       getProducts: computed,
     });
     this.rootStore = rootStore;
   }
 
-  // async fetchProducts() {
-  //   try {
-  //     // const response = await fetchAllProducts();
-  //     // this.products = response?.data ?? [];
-  //   } catch (e) {
-  //     console.log(e);
-  //   }
-  // }
+  async fetchProducts() {
+    try {
+      // const response = await fetchAllProducts();
+      // this.products = response?.data ?? [];
+    } catch (e) {
+      console.log(e);
+    }
+  }
 
   get getProducts() {
     return this.products;

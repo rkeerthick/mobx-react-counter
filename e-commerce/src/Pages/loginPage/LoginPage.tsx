@@ -13,7 +13,7 @@ const LoginPage = observer(() => {
   const [name, setName] = useState<string>("");
   const [password, setPassword] = useState<string>("");
 
-  let token: string | void = '';
+  let token: any= '';
   const navigate = useNavigate();
 
   const handleLogin = async () => {
@@ -21,13 +21,11 @@ const LoginPage = observer(() => {
       username: name,
       password: password,
     };
-      await loginStore.fetchUserToken(name, password);
-    // token = await fetchToken(data).then((res) => console.log(res, 'res')).catch(e => console.log(e, 'error'))
-    
-    
+      // await loginStore.fetchUserToken(name, password);
+    token = await fetchToken(data);
+    // loginStore.setUserToken(token.data.token);
     navigate("/products");
   };
-  console.log(token, 'response token')
   const handleUserName = (e: any) => {
     setName(e.target.value);
   };

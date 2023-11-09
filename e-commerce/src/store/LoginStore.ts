@@ -3,7 +3,7 @@ import { action, computed, makeObservable, observable } from "mobx";
 import { IRootStore } from "./RootStore";
 import { find } from "lodash";
 import { APIS } from "../Constants/apis";
-import {fetchToken} from '../utils/functions'
+import { fetchToken } from "../utils/functions";
 
 export interface IUserDetails {
   address: Address;
@@ -58,7 +58,8 @@ export class LoginStore {
       password: password,
     };
     debugger;
-    const tokenRes = await fetchToken(data)
+    const tokenRes = await fetchToken(data);
+    console.log(tokenRes, "tokenRes");
     const userLists = await axios.get(APIS.GET_USERS);
     if (tokenRes.data.token) {
       const user = find(userLists.data, (u) => u.username === userName);
@@ -69,6 +70,10 @@ export class LoginStore {
 
   get getUserToken() {
     return this.loginToken;
+  }
+
+  setUserToken(data: string): void {
+    this.loginToken = data;
   }
 
   get getUserDetails() {
