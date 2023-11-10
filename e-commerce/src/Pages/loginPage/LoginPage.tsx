@@ -21,9 +21,13 @@ const LoginPage = observer(() => {
       username: name,
       password: password,
     };
-      // await loginStore.fetchUserToken(name, password);
+
     token = await fetchToken(data);
-    // loginStore.setUserToken(token.data.token);
+
+    loginStore.setToken(token.data.token);
+    
+    loginStore.setUser(name);
+
     navigate("/products");
   };
   const handleUserName = (e: any) => {

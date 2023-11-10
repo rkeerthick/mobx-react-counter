@@ -8,7 +8,6 @@ const ProductsPage = () => {
   const { data } = UseProducts();
   const { rootStore: { productStore } } = useStore();
   productStore.setProducts = data?.data;
-  console.log(data?.data, 'data')
   return (
     <main className="allItems">
       <TopSection />
