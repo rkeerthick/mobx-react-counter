@@ -4,17 +4,12 @@ import { useParams } from "react-router-dom";
 import { find } from "lodash";
 import { IProducts } from "../../store/ProductStore";
 import "./ProductViewPage.scss";
-import {useEffect} from 'react'
 
 const ProductViewPage = observer(() => {
   const {
     rootStore: { productStore, cartStore },
   } = useStore();
   const { productID } = useParams();
-  // const 
-  useEffect(() => {
-
-  }, [])
 
   const product = find(
     productStore.getProducts,
