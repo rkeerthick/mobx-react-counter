@@ -4,7 +4,7 @@ import useStore from "../../Hooks/useStore";
 import { useNavigate } from "react-router-dom";
 import "./LoginPage.scss";
 import { fetchToken } from "../../utils/functions";
-import Input from "../../Components/Input/Input";
+import FormContainer from "../../Containers/FormContainer";
 
 const LoginPage = observer(() => {
   const {
@@ -40,42 +40,14 @@ const LoginPage = observer(() => {
   };
 
   return (
-    <main className="form-signin">
-      <form>
-        <h1 className="h3 mb-3 fw-normal">Please sign in</h1>
-
-        <div className="form-floating">
-          <Input
-            type="email"
-            className="form-control"
-            id="floatingInput"
-            placeholder="Username"
-            value={name}
-            handleChange={handleUserName}
-          />
-          <label htmlFor="floatingInput">UserName</label>
-        </div>
-        <div className="form-floating">
-          <Input
-            type="password"
-            className="form-control"
-            id="floatingPassword"
-            placeholder="Password"
-            value={password}
-            handleChange={handlePassword}
-          />
-          <label htmlFor="floatingPassword">Password</label>
-        </div>
-
-        <button
-          onClick={handleLogin}
-          className="btn btn-primary w-100 py-2"
-          type="button"
-        >
-          Sign in
-        </button>
-      </form>
-    </main>
+    <FormContainer
+      title="Please sign in"
+      name={name}
+      password={password}
+      handleUserName={handleUserName}
+      handlePassword={handlePassword}
+      handleLogin={handleLogin}
+    />
   );
 });
 
