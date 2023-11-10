@@ -1,16 +1,25 @@
 import React from 'react'
 
-const Input = () => {
+type IInput = {
+  type: string,
+  className: string,
+  id: string,
+  placeholder: string,
+  value: string,
+  handleChange: any
+}
+
+const Input = ({type, className, id, placeholder, value, handleChange}: IInput) => {
     return (
       <>
-        {/* <input
-          type="email"
-          className="form-control"
-          id="floatingInput"
-          placeholder="Username"
-          value={name}
-          onChange={handleUserName}
-        /> */}
+        <input
+          type={type}
+          className={className}
+          id={id}
+          placeholder={placeholder}
+          value={value}
+          onChange={handleChange}
+        />
       </>
     );
 }

@@ -1,9 +1,10 @@
-import { observer } from 'mobx-react-lite';
-import React, { useState } from 'react'
-import useStore from '../../Hooks/useStore';
-import { useNavigate } from 'react-router-dom';
-import './LoginPage.scss'
-import { fetchToken } from '../../utils/functions';
+import { observer } from "mobx-react-lite";
+import React, { useState } from "react";
+import useStore from "../../Hooks/useStore";
+import { useNavigate } from "react-router-dom";
+import "./LoginPage.scss";
+import { fetchToken } from "../../utils/functions";
+import Input from "../../Components/Input/Input";
 
 const LoginPage = observer(() => {
   const {
@@ -13,7 +14,7 @@ const LoginPage = observer(() => {
   const [name, setName] = useState<string>("");
   const [password, setPassword] = useState<string>("");
 
-  let token: any= '';
+  let token: any = "";
   const navigate = useNavigate();
 
   const handleLogin = async () => {
@@ -25,7 +26,7 @@ const LoginPage = observer(() => {
     token = await fetchToken(data);
 
     loginStore.setToken(token.data.token);
-    
+
     loginStore.setUser(name);
 
     navigate("/products");
@@ -44,24 +45,24 @@ const LoginPage = observer(() => {
         <h1 className="h3 mb-3 fw-normal">Please sign in</h1>
 
         <div className="form-floating">
-          <input
+          <Input
             type="email"
             className="form-control"
             id="floatingInput"
             placeholder="Username"
             value={name}
-            onChange={handleUserName}
+            handleChange={handleUserName}
           />
           <label htmlFor="floatingInput">UserName</label>
         </div>
         <div className="form-floating">
-          <input
+          <Input
             type="password"
             className="form-control"
             id="floatingPassword"
             placeholder="Password"
             value={password}
-            onChange={handlePassword}
+            handleChange={handlePassword}
           />
           <label htmlFor="floatingPassword">Password</label>
         </div>
@@ -78,4 +79,4 @@ const LoginPage = observer(() => {
   );
 });
 
-export default LoginPage
+export default LoginPage;
