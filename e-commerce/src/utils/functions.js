@@ -10,3 +10,7 @@ export function fetchToken(data) {
 export function fetchAllProducts() {
     return axios.get(APIS.GET_PRODUCTS);
 }
+
+export function fetchProduct(id) {
+    return axios.get(APIS.GET_PRODUCT+`/${id}`);
+}

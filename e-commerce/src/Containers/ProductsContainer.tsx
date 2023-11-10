@@ -7,7 +7,7 @@ interface IProductContainer {
 }
 
 const ProductsContainer = ({products}: IProductContainer) => {
-    
+    console.log(products, 'products')
     return (
       <>
         <div className="products">

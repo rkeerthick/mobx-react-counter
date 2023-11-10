@@ -1,14 +1,10 @@
-import axios from "axios";
-import { useQuery } from "react-query"
-import { APIS } from "../Constants/apis";
 
-const fetchProducts = () => {
-  return axios.get(APIS.GET_PRODUCTS);
-}
+import { useQuery } from "react-query"
+import { fetchAllProducts } from "../utils/functions";
+
 
 const UseProducts = () => {
-  console.log(fetchProducts)
-  return useQuery("products", fetchProducts)
+  return useQuery("products", fetchAllProducts)
 }
 
 export default UseProducts

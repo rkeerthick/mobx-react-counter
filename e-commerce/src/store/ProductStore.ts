@@ -1,4 +1,3 @@
-
 import { action, computed, makeObservable, observable } from "mobx";
 import { IRootStore } from "./RootStore";
 import { fetchAllProducts } from "../utils/functions";
@@ -25,6 +24,7 @@ export class ProductStore {
     makeObservable(this, {
       products: observable,
       fetchProducts: action,
+      setProducts:action,
       getProducts: computed,
     });
     this.rootStore = rootStore;
@@ -32,8 +32,8 @@ export class ProductStore {
 
   async fetchProducts() {
     try {
-      // const response = await fetchAllProducts();
-      // this.products = response?.data ?? [];
+      const response = await fetchAllProducts();
+      this.products = response?.data ?? [];
     } catch (e) {
       console.log(e);
     }
@@ -43,8 +43,7 @@ export class ProductStore {
     return this.products;
   }
 
-  set setProducts(data: []) {
+  setProducts(data: []) {
     this.products = data;
   }
 }
-
